@@ -43,7 +43,7 @@ module WinScanner
           break
         end
         node = body.PullResponse.Items.send classname
-        yield CIMInstance.new(@wsclient, node)
+        yield CIMInstance.new(@wsclient, node) if node
       end
       @wsclient.release(@wsoptions,uri,context) if context
     end
